@@ -1,0 +1,295 @@
+1)Python code to display system information using pywhois
+
+import platform
+ 
+my_system = platform.uname()
+ 
+print(f"System: {my_system.system}")
+print(f"Node Name: {my_system.node}")
+print(f"Release: {my_system.release}")
+print(f"Version: {my_system.version}")
+print(f"Machine: {my_system.machine}")
+print(f"Processor: {my_system.processor}")
+
+
+2) The Magic 8 Ball
+
+
+import random
+import time
+
+eight_ball = [ "It is certain", "It is decidedly so", "Without a doubt", "Yes, definitely",
+               "You may rely on it", "As I see it, yes", "Most Likely", "Outlook Good",
+               "Yes", "Signs point to yes", "Reply hazy, try again", "Ask again later",
+               "Better not tell you now", "Cannot predict now", "Concentrate and ask again",
+               "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very Doubtful"]
+
+def question():
+    question = input("You may ask your yes or no question of the Magic 8 Ball!\n")
+    print("Thinking...")
+    time.sleep(random.randrange(0,5))
+    print(random.choice(eight_ball))
+
+while True:
+    question()
+    repeat = input("Would you like to ask another question? (Y or N)")
+    if not (repeat == "y" or repeat == "Y"):
+        print("Come back if you have more questions!")
+        break
+
+
+3) Prime or not
+
+num = 29
+
+# To take input from the user
+#num = int(input("Enter a number: "))
+
+# define a flag variable
+flag = False
+
+# prime numbers are greater than 1
+if num > 1:
+    # check for factors
+    for i in range(2, num):
+        if (num % i) == 0:
+            # if factor is found, set flag to True
+            flag = True
+            # break out of loop
+            break
+
+# check if flag is True
+if flag:
+    print(num, "is not a prime number")
+else:
+    print(num, "is a prime number")
+
+
+4) Simple Calculator
+
+def add(x, y):
+ return x + y
+
+def subtract(x, y):
+ return x - y
+
+def multiply(x, y):
+ return x * y
+
+def divide(x, y):
+ return x / y
+
+print("Select operation.")
+print("1.Add")
+print("2.Subtract")
+print("3.Multiply")
+print("4.Divide")
+
+while True:
+ choice = input("Enter choice(1/2/3/4): ")
+ if choice in ('1', '2', '3', '4'):
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+    if choice == '1':
+      print(num1, "+", num2, "=", add(num1, num2))
+    elif choice == '2':
+     print(num1, "-", num2, "=", subtract(num1, num2))
+
+    elif choice == '3':
+     print(num1, "*", num2, "=", multiply(num1, num2))
+
+    elif choice == '4':
+         print(num1, "/", num2, "=", divide(num1, num2))
+    break
+ else:
+   print("Invalid Input")
+
+
+5) Factorial
+
+def recur_factorial(n):
+ if n == 1:
+   return n
+ else:
+   return n*recur_factorial(n-1)
+num = 5
+# check if the number is negative
+if num < 0:
+ print("Sorry, factorial does not exist for negative numbers")
+elif num == 0:
+ print("The factorial of 0 is 1")
+else:
+ print("The factorial of", num, "is", recur_factorial(num))
+
+3.Transpose of Matrix
+
+X=[[12 ,4],
+   [2 ,5],
+   [6 ,8]]
+   
+result = [[0,0,0],
+[0,0,0]]
+         
+for i in range(len(X)):
+    for j in range(len(X[0])):
+       result[j][i] = X[i][j]
+for r in result:
+   print(r)  
+
+
+
+6)Generate a Random Number
+
+import random
+a=[]
+n=int(input("Enter number of elements:"))
+for j in range(n):
+ a.append(random.randint(1,20))
+print('Randomised list is: ',a)
+
+
+7) Display the multiplication Table
+
+x=int(input("Enter a number to generate a table"))
+for i in range(1,11):
+ print("{0} * {1} = {2}".format(i,x,i*x))
+
+
+8) Program to Convert Decimal to Binary, Octal and Hexadecimal
+
+dec = int(input("Enter Decimal number"))
+print("The decimal value Entered ", dec, "is:")
+print(bin(dec), "in binary.")
+print(oct(dec), "in octal.")
+print(hex(dec), "in hexadecimal.")
+
+9) Transpose a Matrix
+
+X = [[12,7],
+ [4 ,5],
+ [3 ,8]]
+result = [[0,0,0],
+ [0,0,0]]
+# iterate through rows
+for i in range(len(X)):
+ # iterate through columns
+ for j in range(len(X[0])):
+ result[j][i] = X[i][j]
+for r in result:
+ print(r)
+
+10) Multiply Two Matrices
+
+X = [[12,7,3],
+ [4 ,5,6],
+ [7 ,8,9]]
+# 3x4 matrix
+Y = [[5,8,1,2],
+ [6,7,3,0],
+ [4,5,9,1]]
+# result is 3x4
+result = [[0,0,0,0],
+ [0,0,0,0],
+ [0,0,0,0]]
+for i in range(len(X)):
+   for j in range(len(Y[0])):
+       for k in range(len(Y)):
+             result[i][j] += X[i][k] * Y[k][j]
+for r in result:
+    print(r)
+
+11)Palindrome or Not
+
+x = "malayalam"
+w = ""
+for i in x:
+ w= i + w #mal
+if (x == w):
+ print("Yes it is palindrome")
+else:
+ print("No, it is NOT palindrome")
+
+12) Sort Words in Alphabetic Order
+
+my_str = input("Enter a string: ")
+words = [word.lower() for word in my_str.split()]
+words.sort()
+print("The sorted words are:")
+for word in words:
+ print(word)
+
+13) Program for Inheritance.
+
+class A:
+   def __init__(self,x,y):
+     self.x=x
+     self.y=y
+def addition(self,x,y):
+ return (x+y)
+
+#object creation process
+class B(A):
+ a=int (input("Enter a first Number: "))
+ b=int (input("Enter a second Number: "))
+ obj =A(a,b)
+ print("Addition of two numbers : ",obj.addition(a,b))
+
+14) Operator overloading
+
+class A:
+  # Constructor creation
+    def __init__(self, a):
+        self.a = a
+ # adding two objects 
+    def __add__(self, o):
+        return self.a + o.a 
+
+    def __lt__(self, other):
+        if(self.a<other.a):
+            return "ob1 is lessthan ob2"
+        else:
+            return "ob2 is less than ob1"
+    def __eq__(self, other):
+        if(self.a == other.a):
+            return "Both are equal"
+        else:
+            return "Not equal"
+
+ob1 = A(1)
+ob2 = A(2)
+print(ob1 + ob2)
+
+ob3 = A("Python")
+ob4 = A("overloading")
+print(ob3 + ob4)
+                 
+ob1 = A(5)
+ob2 = A(3)
+print(ob1 < ob2)
+ 
+ob3 = A(4)
+ob4 = A(4)
+print(ob3 == ob4)
+
+15) Exception Handling.
+
+a=int (input("Enter a first Number: "))
+b=int (input("Enter a second Number: "))
+try:
+ k = a//b # // is floor division
+except ZeroDivisionError:
+ print("Can't divide by zero")
+
+else :
+ print("The Result of ",a,"//",b,"=",k)
+
+finally:
+ print('Program closed')
+
+
+
+
+
+
+
+
